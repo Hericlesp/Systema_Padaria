@@ -2,6 +2,7 @@
 #codigo=[]
 #codDesc={}
 #descricao=[]
+#total = 0
 descPrec={
 
 }
@@ -15,21 +16,25 @@ loop=0
 venda="2"
 
 
-
 def ml():
     print('==='*15)
 
 
 def intro():
-    print("\n"*4)
-    ml()
     ml()
     print("\n")
     print("                 TECNOSYS                       ")
     print("     ...gestão de estoque e vendas...            ")
     print('\n')
     ml()
-    ml()
+
+# def intro2():
+#     ml()
+#     print("           1            2          3     ")
+#     print("       PRODUTOS     CADASTRO    VENDAS   ")
+#     ml()
+#     print('  TECLE A OPERAÇÃO:  ')
+#     operacao=int(input('     '))
 
 def cadastro():
         import os
@@ -45,7 +50,7 @@ def cadastro():
             preco=(float(input('    ')))
             descPrec[descricao]=preco
             ml()
-            print('NOVO PRODUTO?  (sim / nao)' )
+            print('NOVO PRODUTO:  (sim / nao)     MENU: exit' )
             cad=str(input('  ')).lower()
             if cad != 'sim':
                 import os
@@ -59,90 +64,109 @@ def cadastro():
                 ml()
                 print("\n"*4)
                 #print(codDesc,)
-                print(descPrec,)
+                #print(descPrec,)
                 #print('R$', preco)
-                print('\n'*6)
-                break
+                #print('\n'*6)
+                login()
+                #break
 
 
 
 
-import os
-os.system('cls')
-print("\n"*4)
-ml()
-ml()
-print("\n")
-print("                 TECNOSYS                       ")
-print("     ...gestão de estoque e vendas...            ")
-print('\n')
-ml()
-ml()
-print("           1            2          3     ")
-print("       PRODUTOS     CADASTRO    VENDAS   ")
-ml()
-print('  TECLE A OPERAÇÃO:  ')
-operacao=int(input('     '))
-if operacao == 1:
-    #print(codDesc)
-    print(descPrec)
-    #print(preco, end='  ')
+
+def login():
+    import os
+    os.system('cls')
+    print("\n"*4)
+    ml()
+    ml()
+    print("\n")
+    print("                 TECNOSYS                       ")
+    print("     ...gestão de estoque e vendas...            ")
     print('\n')
     ml()
-    print('                 2    ')
-    print('     CADASTRAR NOVO PRODUTO?  (sim / nao)') 
-    cad2=str(input('    '))
     ml()
-    if cad2=='sim':
-         cadastro()
+    print("           1            2          3     ")
+    print("       PRODUTOS     CADASTRO    VENDAS   ")
+    ml()
+    print('  TECLE A OPERAÇÃO:  ')
+    operacao=int(input('     '))
+    if operacao == 1:
+        import os
+        os.system('cls')
+        intro()
+        #print(codDesc)
+        #print(descPrec)
+        for item in descPrec:
+            print(item, '  R$ ',descPrec[item])
+        # #print(preco, end='  ')
+        print('\n')
+        ml()
+        # print('                 2    ')
+        # print('     CADASTRAR NOVO PRODUTO?  (sim / nao)') 
+        print('     VOLTA: ( sim / nao)')
+        cad2=str(input('    '))
+        ml()
+        if cad2=='sim':
+            #cadastro()
+            login()
         
                 
-elif operacao== 2:
-    import os
-    os.system('cls')
-    print("\n"*4)
-    ml()
-    ml()
-    cadastro()
-
-else:
-
-    import os
-    os.system('cls')
-    print("\n"*4)
-    ml()
-    ml()
-    print(descPrec)
-    ml()
-    total=0
-    while True:
-        comanda()
+    elif operacao== 2:
+        import os
+        os.system('cls')
+        print("\n"*4)
         ml()
-        print('            1                      2    ')
-        print('     FINALIZAR VENDA         ADD PRODUTO') 
-        venda=str(input('    ')) 
         ml()
-        if venda==1:
+        cadastro()
+
+        
+
+    else:
+        import os
+        os.system('cls')
+        print("\n"*4)
+        ml()
+        ml()
+        for item in descPrec:
+            print(item, '  R$ ',descPrec[item])
+        ml()
+        
+        while True:
             comanda()
+            ml()
+            print('            1                      2    ')
+            print('     FINALIZAR VENDA         ADD PRODUTO') 
+            venda=str(input('    ')) 
+            ml()
+            if venda==1:
+                comanda()
 
-        elif venda==2:
-            print('ADD NOVO LANCHE: ')
-            for pedido in descPrec:
-                print('   DIGITE O PRODUTO: ')
-                
-                total += descPrec[pedido]
-                print('   PEDIDO ADD AO CARRINHO')
-                itenVend[pedido]=descPrec[descricao]
+            elif venda==2:
+                print('ADD NOVO LANCHE: ')
+                for pedido in descPrec:
+                    print('   DIGITE O PRODUTO: ')
+
+                    total += descPrec[pedido]
+                    print('   PEDIDO ADD AO CARRINHO')
+                    itenVend[pedido]=descPrec['']
 
             
             
-            
+      
 def comanda():
+    total = 0
+    import os
+    os.system('cls')
     print("     --- COMANDA ---   ")
     intro()
     print('   PEDIDO BALCÃO: ')
     ml()
-    itens()
-
+    #total = total
+    for vendidos in itenVend:
+        print(vendidos, '  R$ ',itenVend[vendidos])
+        total += itenVend[vendidos]
     ml()
-    print('   TOTAL PEDIDO: ')
+    print('   TOTAL PEDIDO:           R$  ',total)
+
+login()
