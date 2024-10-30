@@ -4,7 +4,9 @@
 #descricao=[]
 #total = 0
 descPrec={
-
+    'uva':8.00,
+    'pera':9.00,
+    'maca':7.00,
 }
 #preco=[]
 #preco={}
@@ -44,8 +46,10 @@ def cadastro():
         while True:
 
             ml()
-            print('  PRODUTO:' )
+            print('  PRODUTO:          VOLTAR: exit' )
             descricao=str(input('    ')).upper()
+            if descricao =="EXIT":
+                login()
             print('  PREÇOS: ' )
             preco=(float(input('    ')))
             descPrec[descricao]=preco
@@ -135,7 +139,7 @@ def login():
         ml()
         
         while True:
-            comanda()
+            #comanda()
             ml()
             print('            1                      2    ')
             print('     FINALIZAR VENDA         ADD PRODUTO') 
@@ -144,14 +148,26 @@ def login():
             if venda==1:
                 comanda()
 
-            elif venda==2:
-                print('ADD NOVO LANCHE: ')
+            else:
+                total = 0
+                print(' NOVO LANCHE: ')
                 for pedido in descPrec:
                     print('   DIGITE O PRODUTO: ')
-
+                    produto=str(input(' ')).upper()
+                    itenVend[produto]=descPrec[produto]
                     total += descPrec[pedido]
-                    print('   PEDIDO ADD AO CARRINHO')
-                    itenVend[pedido]=descPrec['']
+                    ml()
+                    print('   PEDIDO ADD AO CARRINHO ')
+                    ml()
+                print(' VER COMANDA:  1        VOLTAR: exit')
+                carrinho=str(input('    '))
+                ml()
+                if carrinho=='exit':
+                    #cadastro()
+                    login()
+                else:
+                    comanda()
+                    #itenVend[pedido]=descPrec['']
 
             
             
