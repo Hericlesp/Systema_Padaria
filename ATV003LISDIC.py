@@ -104,12 +104,14 @@ def login():
         ml()
         # print('                 2    ')
         # print('     CADASTRAR NOVO PRODUTO?  (sim / nao)') 
-        print('     VOLTA: ( sim / nao)')
+        print('     VOLTA: exit      CADASTRAR: 02')
         cad2=str(input('    '))
         ml()
-        if cad2=='sim':
+        if cad2=='exit':
             #cadastro()
             login()
+        else:
+            cadastro()
         
                 
     elif operacao== 2:
