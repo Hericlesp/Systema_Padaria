@@ -1,4 +1,4 @@
-#codigo=['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20']
+codigo=['01','02','03','04','05']
 #codigo=[]
 #codDesc={}
 #descricao=[]
@@ -75,7 +75,55 @@ def cadastro():
                 #break
 
 
+def vender():
+        import os
+        os.system('cls')
+        print("\n"*4)
+        ml()
+        ml()
+        for item in descPrec:
+            print(item, '  R$ ',descPrec[item])
+        ml()
+        
+        while True:
+            #comanda()
+            ml()
+            print('         1                2        exit')
+            print('  FINALIZAR VENDA   ADD PRODUTO    MENU') 
+            venda=str(input('    ')).upper
+            ml()
+            if venda=='1':
+                comanda()
 
+            elif venda=='EXIT':
+                login()
+
+            else:
+                total = 0
+                print(' NOVO LANCHE: ')
+                for pedido in descPrec:
+                    print('   DIGITE O PRODUTO:           VOLTAR: exit')  
+                    produto=str(input(' ')).upper()
+                    for produto in descPrec:
+                        itenVend[produto]=descPrec[produto]
+                        total += descPrec[pedido]
+                        ml()
+                        print('   PEDIDO ADD AO CARRINHO ')
+                        ml()
+                        
+                    print(' VER COMANDA:  1        VOLTAR: exit')
+                    carrinho=str(input('    '))
+                    ml()
+                    if produto=='exit':
+                        comanda()
+
+                    elif carrinho=='exit':
+                    #cadastro()
+                        login()
+                    else:
+                        comanda()
+                    #itenVend[pedido]=descPrec['']
+            
 
 
 def login():
@@ -90,8 +138,8 @@ def login():
     print('\n')
     ml()
     ml()
-    print("           1            2          3     ")
-    print("       PRODUTOS     CADASTRO    VENDAS   ")
+    print("       1         2         3          4 ")
+    print("   PRODUTOS   CADASTRO   VENDAS   COMANDAS ")
     ml()
     print('  TECLE A OPERAÇÃO:  ')
     operacao=int(input('     '))
@@ -126,6 +174,14 @@ def login():
         ml()
         cadastro()
 
+    elif operacao== 4:
+        import os
+        os.system('cls')
+        print("\n"*4)
+        ml()
+        ml()
+        comanda()
+
         
 
     else:
@@ -141,32 +197,38 @@ def login():
         while True:
             #comanda()
             ml()
-            print('            1                      2    ')
-            print('     FINALIZAR VENDA         ADD PRODUTO') 
-            venda=str(input('    ')) 
+            print('            1                2       exit ')
+            print('     FINALIZAR VENDA   ADD PRODUTO   MENU') 
+            venda=str(input('    ')).upper
             ml()
             if venda==1:
                 comanda()
-
+            elif venda=='EXIT':
+                login()
             else:
                 total = 0
                 print(' NOVO LANCHE: ')
                 for pedido in descPrec:
-                    print('   DIGITE O PRODUTO: ')
+                    print('   DIGITE O PRODUTO:           VOLTAR: exit')  
                     produto=str(input(' ')).upper()
-                    itenVend[produto]=descPrec[produto]
-                    total += descPrec[pedido]
+                    
+                    for produto in descPrec:
+                        itenVend[produto]=descPrec[produto]
+                        total += descPrec[pedido]
+                        ml()
+                        print('   PEDIDO ADD AO CARRINHO ')
+                        ml()
+                    print(' VER COMANDA:  1        VOLTAR: exit')
+                    carrinho=str(input('    '))
                     ml()
-                    print('   PEDIDO ADD AO CARRINHO ')
-                    ml()
-                print(' VER COMANDA:  1        VOLTAR: exit')
-                carrinho=str(input('    '))
-                ml()
-                if carrinho=='exit':
+                    if produto=='exit':
+                        comanda()
+
+                    elif carrinho=='exit':
                     #cadastro()
-                    login()
-                else:
-                    comanda()
+                        login()
+                    else:
+                        comanda()
                     #itenVend[pedido]=descPrec['']
 
             
@@ -186,5 +248,23 @@ def comanda():
         total += itenVend[vendidos]
     ml()
     print('   TOTAL PEDIDO:           R$  ',total)
+    ml()
+    print('  ')
+    print('          1               2        EXIT')
+    print(' FINALIZAR PEDIDO   ADD PRODUTO    MENU')
+    final=str(input('  '))
+    if final == 1:
+        #limpar a comanda e voltar ao menu de vendas
+        print(' PEDIDO FINALIZADO ')
+        print('tecle enter para sair')
+        enter=str(input('   '))
+        login()
+        #add comando de limpar lista de itens venvidos
+
+    elif final == 2:
+        vender()
+    
+    else:
+        login()
 
 login()
