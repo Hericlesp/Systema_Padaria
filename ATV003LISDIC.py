@@ -103,7 +103,7 @@ def vender():
                 print(' NOVO LANCHE: ')
                 for pedido in descPrec:
                     print('   DIGITE O PRODUTO:           VOLTAR: exit')  
-                    produto=str(input(' ')).upper()
+                    produto=str(input(' ')).lower()
                     for produto in descPrec:
                         itenVend[produto]=descPrec[produto]
                         total += descPrec[pedido]
@@ -157,7 +157,7 @@ def login():
         # print('                 2    ')
         # print('     CADASTRAR NOVO PRODUTO?  (sim / nao)') 
         print('     VOLTA: exit      CADASTRAR: 02')
-        cad2=str(input('    '))
+        cad2=str(input('    ')).lower()
         ml()
         if cad2=='exit':
             #cadastro()
@@ -199,29 +199,31 @@ def login():
             ml()
             print('            1                2       exit ')
             print('     FINALIZAR VENDA   ADD PRODUTO   MENU') 
-            venda=str(input('    ')).upper
+            venda=str(input('    ')).lower()
             ml()
             if venda==1:
                 comanda()
-            elif venda=='EXIT':
+            elif venda=='exit':
                 login()
             else:
                 total = 0
                 print(' NOVO LANCHE: ')
                 for pedido in descPrec:
                     print('   DIGITE O PRODUTO:           VOLTAR: exit')  
+                    #teste 
+                    print(pedido)
                     produto=str(input(' ')).upper()
-                    
-                    for produto in descPrec:
-                        itenVend[produto]=descPrec[produto]
-                        total += descPrec[pedido]
+                    for produto_vendido in descPrec:
+                        if produto == produto_vendido:
+                            itenVend[produto]=descPrec[produto]
+                            total += descPrec[pedido]
                         ml()
                         print('   PEDIDO ADD AO CARRINHO ')
                         ml()
                     print(' VER COMANDA:  1        VOLTAR: exit')
-                    carrinho=str(input('    '))
+                    carrinho=str(input('    ')).lower()
                     ml()
-                    if produto=='exit':
+                    if produto=='EXIT':
                         comanda()
 
                     elif carrinho=='exit':
