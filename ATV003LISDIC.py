@@ -387,6 +387,9 @@ def comanda_final():
 
 
 def formas_pagamento():
+    import os
+    os.system('cls')
+    intro()
     print('QUAL A FORMA DE PAGAMENTO:')
     print('      1          2          3  ')
     print('💰DINHEIRO   🪙PIX    💳CARTAO ')
