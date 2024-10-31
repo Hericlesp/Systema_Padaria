@@ -331,7 +331,7 @@ def comanda():
     print('🖨️FIN.PEDIDO   ➕ADD.PRODUTO   ❌CANCELAR ')
     final=str(input('  '))
     if final == '1':
-        comanda_final()
+        formas_pagamento()
     elif final=='2':
         vender()
     elif final == '3':
@@ -395,8 +395,13 @@ def formas_pagamento():
         print('PRECISA DE TROCO PARA?? ')
         troco=float(input(' R$ '))
     if forma_pag=='3':
+        print('   1         2 ')
         print('DEBITO OU CREDITO: ')
-        print('DEBITO OU CREDITO: ')
+        pag=str(input(' '))
+        if pag=='1':
+            forma=str('DEBITO')
+        if pag=='2':
+            forma=str('CREDITO')
         
     if forma_pag == '1':
         intro()
@@ -521,7 +526,7 @@ def formas_pagamento():
         ml()
         print('FORMA DE PAGAMENTO:     CARTAO     ')
         print(f'TOTAL A PAGAR:  R$ {total}     ')
-        print(f'CARTAO: FORMA {forma}    ')
+        print(f'CARTAO:  {forma}    ')
         print('        1       ')
         print(' 🖨️ FIN.PEDIDO ')
         imprimir=str(input('  '))
