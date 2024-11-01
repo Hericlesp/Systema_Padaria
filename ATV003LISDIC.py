@@ -20,10 +20,10 @@ venda="2"
 
 #     LOGIN
 
-loginEm = ['SENAC',]
-senhaEm = ['SENAC',]
-loginM = "ROOT"
-senhaM = "ROOT"
+loginEm = 'SENAC'
+senhaEm = 'SENAC'
+# loginM = "ROOT"
+# senhaM = "ROOT"
 tent = 0
 validador = 0
 
@@ -50,9 +50,6 @@ def logar():
         if loginEm == logEn and senhaEm == senEn: 
             login()
             
-        if loginM == 'ROOT' and senhaM == 'ROOT':
-            login()
-
         else:
             tent = tent + 1
 
@@ -441,13 +438,17 @@ def formas_pagamento():
         print('FORMA DE PAGAMENTO:     DINHEIRO     ')
         print(f'TROCO PARA {troco}:  R$ {total}     ')
         print(f'TROCO IGUAL Á:  R$ {(troco-total)}     ')
+        ml()
         print('        1       ')
         print(' 🖨️ FIN.PEDIDO ')
         imprimir=str(input('  '))
         if imprimir == '1':
+            ml()
             print(' PEDIDO FINALIZADO ')
+            ml()
             itenVend.clear()
             print('tecle enter \n \n          SIGA ATE O CAIXA!!')
+            ml()
             enter=(input('   '))
             if enter !=0:
                 login()
@@ -487,13 +488,18 @@ def formas_pagamento():
             print('FORMA DE PAGAMENTO:     PIX     ')
             print(f'TOTAL A PAGAR:  R$ {total}     ')
             print(f'CHAVE PIX: \n CNPJ: \n 38.856.476-0003-89    ')
+            ml()
             print('        1       ')
             print(' 🖨️ FIN.PEDIDO ')
+            
             imprimir=str(input('  '))
             if imprimir == '1':
+                ml()
                 print(' PEDIDO FINALIZADO ')
+                ml()
                 itenVend.clear()
                 print('tecle enter \n \n          SIGA ATE O CAIXA!!')
+                ml()
                 enter=(input('   '))
                 if enter !=0:
                     login()
@@ -530,13 +536,17 @@ def formas_pagamento():
         print('FORMA DE PAGAMENTO:     CARTAO     ')
         print(f'TOTAL A PAGAR:  R$ {total}     ')
         print(f'CARTAO:  {forma}    ')
+        ml()
         print('        1       ')
         print(' 🖨️ FIN.PEDIDO ')
         imprimir=str(input('  '))
         if imprimir == '1':
+            ml()
             print(' PEDIDO FINALIZADO ')
+            ml()
             itenVend.clear()
-            print('tecle enter \n \n          SIGA ATE O CAIXA!!')
+            print('         tecle enter \n \n          SIGA ATE O CAIXA!!')
+            ml()
             enter=(input('   '))
             if enter !=0:
                 login()
