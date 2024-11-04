@@ -103,6 +103,8 @@ def cadastro():
                 login()
             print('  PREÇOS: ' )
             preco=(float(input('    ')))
+            #add conversor com replace para evitar bug de ponto ou virgula.
+            #preco_cv=str(preco)
             descPrec[descricao]=preco
             ml()
             print('NOVO PRODUTO:  (sim / nao)     MENU: exit' )
