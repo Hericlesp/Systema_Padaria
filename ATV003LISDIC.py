@@ -552,7 +552,7 @@ def formas_pagamento():
             enter=(input('   '))
             if enter !=0:
                 login()
-#add forma de pagamento
+
 logar()
 
 
